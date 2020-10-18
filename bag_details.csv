@@ -1,0 +1,103 @@
+,Seller,Item ID,category,brand,Image_path,Logo Size,Logo Contrast,Logo Conspicuousness,Number of colors,Color Entropy
+5,seller_103176,7187613,Bags,Chanel,Group4/Sellers/seller_103176/Images/7187613-1_3.jpg,15805.0,1.128,0.02,7.0,0.102
+6,seller_10225,3533981,Bags,Miu Miu,Group4/Sellers/seller_10225/Images/3533981-1_1.jpg,0.0,0.0,0.0,7.0,0.034
+7,seller_10225,3457893,Bags,Bleu De Chauffe,Group4/Sellers/seller_10225/Images/3457893-1_1.jpg,0.0,0.0,0.0,6.0,0.028
+9,seller_10225,3458071,Bags,Stella McCartney Pour Adidas,Group4/Sellers/seller_10225/Images/3458071-1_1.jpg,0.0,0.0,0.0,7.0,0.062
+16,seller_10225,2606327,Bags,Christian Louboutin,Group4/Sellers/seller_10225/Images/2606327-1_1.jpg,0.0,0.0,0.0,7.0,0.13
+18,seller_10225,2606305,Bags,Chanel,Group4/Sellers/seller_10225/Images/2606305-1_2.jpg,14659.0,0.769,0.017,7.0,0.053
+19,seller_1039119,6176374,Bags,Celine,Group4/Sellers/seller_1039119/Images/6176374-1_1.jpg,0.0,0.0,0.0,7.0,0.064
+32,seller_1070585,1235369,Bags,Proenza Schouler,Group4/Sellers/seller_1070585/Images/1235369-1_1.jpg,0.0,0.0,0.0,6.0,0.056
+33,seller_1007672,9833455,Bags,Prada,Group4/Sellers/seller_1007672/Images/9833455-1_1.jpg,0.0,0.0,0.0,7.0,0.053
+54,seller_1027448,3761728,Bags,Balenciaga,Group4/Sellers/seller_1027448/Images/3761728-1_1.jpg,0.0,0.0,0.0,7.0,0.061
+55,seller_1027448,3240142,Bags,Chloé,Group4/Sellers/seller_1027448/Images/3240142-1_4.jpg,0.0,0.0,0.0,7.0,0.071
+56,seller_1027448,3199111,Bags,Balenciaga,Group4/Sellers/seller_1027448/Images/3199111-1_1.jpg,0.0,0.0,0.0,6.0,0.025
+59,seller_10016968,11646796,Bags,Dolce & Gabbana,Group4/Sellers/seller_10016968/Images/11646796-1_1.jpg,0.0,0.0,0.0,8.0,0.067
+68,seller_10016968,11384055,Bags,Dolce & Gabbana,Group4/Sellers/seller_10016968/Images/11384055-1.jpg,0.0,0.0,0.0,8.0,0.031
+75,seller_10016968,10955231,Bags,Gucci,Group4/Sellers/seller_10016968/Images/10955231-1_1.jpg,0.0,0.0,0.0,9.0,0.084
+77,seller_10016968,10907197,Bags,Dolce & Gabbana,Group4/Sellers/seller_10016968/Images/10907197-1_1.jpg,0.0,0.0,0.0,7.0,0.098
+78,seller_10016968,10906053,Bags,Moschino,Group4/Sellers/seller_10016968/Images/10906053-1_1.jpg,0.0,0.0,0.0,6.0,0.07
+91,seller_1009292,1003697,Bags,Celine,Group4/Sellers/seller_1009292/Images/1003697-1_1.jpg,0.0,0.0,0.0,8.0,0.074
+92,seller_1007937,8855564,Bags,Loewe,Group4/Sellers/seller_1007937/Images/8855564-1_1.jpg,460666.0,1.196,0.871,9.0,0.098
+94,seller_1023339,11749274,Bags,Prada,Group4/Sellers/seller_1023339/Images/11749274-1.jpg,0.0,0.0,0.0,8.0,0.077
+95,seller_108488,8213537,Bags,Saint Laurent,Group4/Sellers/seller_108488/Images/8213537-1_1.jpg,0.0,0.0,0.0,8.0,0.146
+97,seller_1009803,3480003,Bags,Dior,Group4/Sellers/seller_1009803/Images/3480003-1_1.jpg,0.0,0.0,0.0,7.0,0.04
+119,seller_1018588,5832099,Bags,Chanel,Group4/Sellers/seller_1018588/Images/5832099-1_4.jpg,0.0,0.0,0.0,7.0,0.051
+120,seller_1001865,5359799,Bags,Prada,Group4/Sellers/seller_1001865/Images/5359799-1_1.jpg,3213.0,1.608,0.009,8.0,0.097
+121,seller_1001865,5359915,Bags,Prada,Group4/Sellers/seller_1001865/Images/5359915-1_1.jpg,0.0,0.0,0.0,7.0,0.083
+125,seller_1000386,2159612,Bags,Lancel,Group4/Sellers/seller_1000386/Images/2159612-1_1.jpg,2223.0,1.054,0.003,8.0,0.131
+127,seller_1000386,2159535,Bags,Gerard Darel,Group4/Sellers/seller_1000386/Images/2159535-1_1.jpg,0.0,0.0,0.0,7.0,0.07
+128,seller_1000386,2159497,Bags,Tara Jarmon,Group4/Sellers/seller_1000386/Images/2159497-1_1.jpg,0.0,0.0,0.0,9.0,0.083
+129,seller_1000386,1925965,Bags,Alaïa,Group4/Sellers/seller_1000386/Images/1925965-1_1.jpg,0.0,0.0,0.0,9.0,0.082
+152,seller_102386,135784,Bags,Gerard Darel,Group4/Sellers/seller_102386/Images/135784-1.jpg,0.0,0.0,0.0,6.0,0.06
+162,seller_1073000,9050355,Bags,Fendi,Group4/Sellers/seller_1073000/Images/9050355-1_1.jpg,3149.0,0.973,0.003,6.0,0.072
+166,seller_1065368,1157122,Bags,Louis Vuitton,Group4/Sellers/seller_1065368/Images/1157122-1_1.jpg,0.0,0.0,0.0,8.0,0.071
+170,seller_1065368,1027574,Bags,Barbara Bui,Group4/Sellers/seller_1065368/Images/1027574-1_1.jpg,0.0,0.0,0.0,8.0,0.046
+171,seller_1065368,1027603,Bags,Bcbg Max Azria,Group4/Sellers/seller_1065368/Images/1027603-1_1.jpg,0.0,0.0,0.0,7.0,0.056
+192,seller_107213,903776,Bags,Ikks,Group4/Sellers/seller_107213/Images/903776-1_1.jpg,0.0,0.0,0.0,7.0,0.073
+193,seller_10006328,10886459,Bags,Marc Jacobs,Group4/Sellers/seller_10006328/Images/10886459-1_1.jpg,817.0,0.542,0.004,9.0,0.069
+194,seller_10006328,10872489,Bags,Marc Jacobs,Group4/Sellers/seller_10006328/Images/10872489-6_8.jpg,0.0,0.0,0.0,8.0,0.095
+204,seller_1057713,7324444,Bags,Dolce & Gabbana,Group4/Sellers/seller_1057713/Images/7324444-1_1.jpg,0.0,0.0,0.0,8.0,0.083
+205,seller_1061282,9025409,Bags,Furla,Group4/Sellers/seller_1061282/Images/9025409-1_1.jpg,0.0,0.0,0.0,7.0,0.068
+206,seller_1061282,9022432,Bags,Philipp Plein,Group4/Sellers/seller_1061282/Images/9022432-1_1.jpg,0.0,0.0,0.0,7.0,0.082
+210,seller_10839,937347,Bags,Ikks,Group4/Sellers/seller_10839/Images/937347-1_1.jpg,787314.0,0.72,0.6,7.0,0.093
+221,seller_1078592,8815631,Bags,Celine,8815631,,,,,
+222,seller_1026978,10565453,Bags,Louis Vuitton,Group4/Sellers/seller_1026978/Images/10565453-1_1.jpg,4636.0,0.89,0.008,7.0,0.057
+227,seller_1076268,2621282,Bags,Celine,Group4/Sellers/seller_1076268/Images/2621282-1_1.jpg,0.0,0.0,0.0,7.0,0.022
+231,seller_100784,230222,Bags,Sonia Rykiel,Group4/Sellers/seller_100784/Images/230222-1_1.jpg,10112.0,1.316,0.014,9.0,0.072
+235,seller_102215,3909075,Bags,Celine,Group4/Sellers/seller_102215/Images/3909075-1_1.jpg,3150.0,0.198,0.001,7.0,0.032
+241,seller_102215,173011,Bags,D&G,Group4/Sellers/seller_102215/Images/173011-1_1.jpg,0.0,0.0,0.0,7.0,0.045
+242,seller_102215,172961,Bags,Vanessa Bruno,Group4/Sellers/seller_102215/Images/172961-1_1.jpg,0.0,0.0,0.0,7.0,0.044
+278,seller_1061848,11117362,Bags,Louis Vuitton,Group4/Sellers/seller_1061848/Images/11117362-1_1.jpg,0.0,0.0,0.0,8.0,0.078
+279,seller_1061848,11101435,Bags,Christian Louboutin,Group4/Sellers/seller_1061848/Images/11101435-1_2.jpg,0.0,0.0,0.0,8.0,0.067
+283,seller_1061848,10938738,Bags,Jimmy Choo,Group4/Sellers/seller_1061848/Images/10938738-1_1.jpg,0.0,0.0,0.0,8.0,0.086
+284,seller_1061848,10938436,Bags,Celine,Group4/Sellers/seller_1061848/Images/10938436-1_1.jpg,0.0,0.0,0.0,7.0,0.097
+286,seller_1061848,10974687,Bags,Bottega Veneta,Group4/Sellers/seller_1061848/Images/10974687-1_1.jpg,0.0,0.0,0.0,7.0,0.089
+289,seller_100722,952168,Bags,Gerard Darel,Group4/Sellers/seller_100722/Images/952168-1_1.jpg,0.0,0.0,0.0,7.0,0.067
+297,seller_10024339,10913280,Bags,Dior Homme,Group4/Sellers/seller_10024339/Images/10913280-1_1.jpg,0.0,0.0,0.0,9.0,0.148
+303,seller_1088557,4120451,Bags,Tod's,Group4/Sellers/seller_1088557/Images/4120451-1_1.jpg,0.0,0.0,0.0,10.0,0.116
+305,seller_1088557,2068579,Bags,Michael Michael Kors,Group4/Sellers/seller_1088557/Images/2068579-1_1.jpg,0.0,0.0,0.0,5.0,0.069
+310,seller_1088557,1152396,Bags,Miu Miu,Group4/Sellers/seller_1088557/Images/1152396-1_2.jpg,9213.0,3.457,0.041,8.0,0.145
+314,seller_1088557,1136202,Bags,Longchamp,Group4/Sellers/seller_1088557/Images/1136202-1_1.jpg,0.0,0.0,0.0,7.0,0.055
+338,seller_1053165,3905932,Bags,Miu Miu,Group4/Sellers/seller_1053165/Images/3905932-940998-1.jpg,0.0,0.0,0.0,6.0,0.034
+342,seller_1053165,940998,Bags,Miu Miu,Group4/Sellers/seller_1053165/Images/940998-1_1.jpg,0.0,0.0,0.0,6.0,0.034
+347,seller_1064145,1456076,Bags,Lancel,Group4/Sellers/seller_1064145/Images/1456076-1_2.jpg,2065.0,11.809,0.057,7.0,0.063
+348,seller_1064145,1456063,Bags,Longchamp,Group4/Sellers/seller_1064145/Images/1456063-1_1.jpg,0.0,0.0,0.0,8.0,0.052
+350,seller_1064145,1182237,Bags,Celine,Group4/Sellers/seller_1064145/Images/1182237-1_1.jpg,0.0,0.0,0.0,9.0,0.04
+383,seller_1070602,994864,Bags,Lancel,Group4/Sellers/seller_1070602/Images/994864-1_1.jpg,0.0,0.0,0.0,7.0,0.063
+390,seller_108084,419098,Bags,Nat & Nin,Group4/Sellers/seller_108084/Images/419098-1_1.jpg,0.0,0.0,0.0,7.0,0.091
+394,seller_1011660,6785828,Bags,Dior,Group4/Sellers/seller_1011660/Images/6785828-1_1.jpg,826321.0,0.481,0.446,5.0,0.054
+400,seller_10005343,11556984,Bags,Gucci,Group4/Sellers/seller_10005343/Images/11556984-1_1.jpg,0.0,0.0,0.0,6.0,0.045
+401,seller_10005343,11524099,Bags,Gucci,Group4/Sellers/seller_10005343/Images/11524099-1_2.jpg,22936.0,0.731,0.03,9.0,0.117
+403,seller_10005343,11523114,Bags,Mcq,Group4/Sellers/seller_10005343/Images/11523114-1_1.jpg,7344.0,6.481,0.063,7.0,0.098
+405,seller_10005343,11522660,Bags,Gucci,Group4/Sellers/seller_10005343/Images/11522660-1_1.jpg,0.0,0.0,0.0,9.0,0.076
+407,seller_10005343,11523336,Bags,Bottega Veneta,Group4/Sellers/seller_10005343/Images/11523336-1_1.jpg,0.0,0.0,0.0,7.0,0.074
+410,seller_10005343,10900556,Bags,Bottega Veneta,Group4/Sellers/seller_10005343/Images/10900556-1_1.jpg,0.0,0.0,0.0,6.0,0.045
+414,seller_10005343,10900485,Bags,Bottega Veneta,Group4/Sellers/seller_10005343/Images/10900485-1_1.jpg,0.0,0.0,0.0,6.0,0.07
+419,seller_10005343,11523669,Bags,Gucci,Group4/Sellers/seller_10005343/Images/11523669-1_1.jpg,0.0,0.0,0.0,7.0,0.069
+424,seller_1020189,6605078,Bags,Louis Vuitton,Group4/Sellers/seller_1020189/Images/6605078-1_1.jpg,3626.0,0.908,0.009,8.0,0.069
+428,seller_1023198,2282764,Bags,Longchamp,Group4/Sellers/seller_1023198/Images/2282764-1_1.jpg,4816.0,0.19,0.001,8.0,0.038
+436,seller_1023198,1531921,Bags,Vanessa Bruno,Group4/Sellers/seller_1023198/Images/1531921-1_1.jpg,0.0,0.0,0.0,7.0,0.091
+450,seller_1029697,11382381,Bags,Stella McCartney,Group4/Sellers/seller_1029697/Images/11382381-1_1.jpg,0.0,0.0,0.0,9.0,0.102
+512,seller_105548,7136909,Bags,Givenchy,Group4/Sellers/seller_105548/Images/7136909-1_1.jpg,220703.0,10.742,2.058,7.0,0.074
+514,seller_105548,963588,Bags,Zadig & Voltaire,Group4/Sellers/seller_105548/Images/963588-1_1.jpg,0.0,0.0,0.0,8.0,0.085
+520,seller_105548,594715,Bags,Marc by Marc Jacobs,Group4/Sellers/seller_105548/Images/594715-1_1.jpg,0.0,0.0,0.0,8.0,0.016
+529,seller_105548,494463,Bags,Max Azria,Group4/Sellers/seller_105548/Images/494463-1_1.jpg,0.0,0.0,0.0,7.0,0.07
+532,seller_105548,203551,Bags,The Kooples,Group4/Sellers/seller_105548/Images/203551-1_1.jpg,0.0,0.0,0.0,8.0,0.088
+533,seller_105548,203569,Bags,Marc by Marc Jacobs,Group4/Sellers/seller_105548/Images/203569-1_2.jpg,0.0,0.0,0.0,7.0,0.119
+544,seller_1054012,4489149,Bags,Marni,Group4/Sellers/seller_1054012/Images/4489149-4191097-1.jpg,0.0,0.0,0.0,8.0,0.091
+545,seller_1087886,8441403,Bags,Celine,Group4/Sellers/seller_1087886/Images/8441403-1_1.jpg,0.0,0.0,0.0,8.0,0.053
+546,seller_1016663,6991829,Bags,Dolce & Gabbana,Group4/Sellers/seller_1016663/Images/6991829-1_1.jpg,0.0,0.0,0.0,10.0,0.164
+547,seller_1002631,5618989,Bags,Lauren Ralph Lauren,Group4/Sellers/seller_1002631/Images/5618989-4721366-1.jpg,2660.0,0.852,0.004,7.0,0.059
+548,seller_1002631,4721366,Bags,Lauren Ralph Lauren,Group4/Sellers/seller_1002631/Images/4721366-1_1.jpg,2660.0,0.852,0.004,7.0,0.059
+549,seller_1002631,4727841,Bags,Lancel,Group4/Sellers/seller_1002631/Images/4727841-1_1.jpg,9196.0,1.488,0.012,8.0,0.085
+581,seller_1060569,4160613,Bags,Celine,Group4/Sellers/seller_1060569/Images/4160613-1_1.jpg,0.0,0.0,0.0,10.0,-0.0
+591,seller_10010733,11405898,Bags,Gucci,Group4/Sellers/seller_10010733/Images/11405898-6_2.jpg,16954.0,0.739,0.014,8.0,0.085
+593,seller_10010733,11086769,Bags,Gucci,Group4/Sellers/seller_10010733/Images/11086769-1_2.jpg,0.0,0.0,0.0,7.0,0.082
+599,seller_1044104,3639789,Bags,Ann Demeulemeester,Group4/Sellers/seller_1044104/Images/3639789-1_1.jpg,0.0,0.0,0.0,8.0,0.13
+600,seller_1044104,3152540,Bags,Ann Demeulemeester,Group4/Sellers/seller_1044104/Images/3152540-2852406-1.jpg,0.0,0.0,0.0,8.0,0.113
+603,seller_1085469,3341984,Bags,Longchamp,Group4/Sellers/seller_1085469/Images/3341984-1_1.jpg,0.0,0.0,0.0,8.0,0.084
+608,seller_1011102,7603156,Bags,Liu.Jo,Group4/Sellers/seller_1011102/Images/7603156-1_1.jpg,0.0,0.0,0.0,8.0,0.121
+609,seller_1011102,4723283,Bags,Yves Saint Laurent,Group4/Sellers/seller_1011102/Images/4723283-1_1.jpg,1073348.0,1.018,0.979,8.0,0.104
+610,seller_1078199,3195642,Bags,Dior,Group4/Sellers/seller_1078199/Images/3195642-3118907-1.jpg,0.0,0.0,0.0,9.0,0.103
+612,seller_109053,3041995,Bags,Celine,Group4/Sellers/seller_109053/Images/3041995-1_1.jpg,0.0,0.0,0.0,6.0,0.087
+613,seller_109053,3042066,Bags,Chloé,Group4/Sellers/seller_109053/Images/3042066-1_1.jpg,0.0,0.0,0.0,8.0,0.14
