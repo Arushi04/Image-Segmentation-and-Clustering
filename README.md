@@ -6,7 +6,6 @@ This project focuses on finding color details of handbags and their logos. The p
 1. Handbag and logo detection using Google vision APIs   
 2. Segmenting the detected region into superpixels (cluster based on color similarity and physical proximity). And then averaging the color in each superpixel.
 3. Clustering the superpixels by using K-means clustering to find clusters by color similarity and finding the average cluster colors and the proportion of pixels assigned to them.   
-
 Below features have been calculated for all handbags:
 1.	Logo size : size of the logo
 2.	Logo contrast : contrast ratio of the most dominant color of logo to handbag
