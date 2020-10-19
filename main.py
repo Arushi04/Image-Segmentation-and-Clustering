@@ -4,17 +4,19 @@ import os
 import math
 import numpy as np
 from PIL import Image as Img
+import logging
 
 from vision import crop_image, get_logo
 from utils import get_sorted_colors, calculate_relative_luminance
 from segment import segment_and_cluster
 
-
 # Connecting to Google Cloud
 from google.cloud import vision
 from google.oauth2 import service_account
+
 creds = service_account.Credentials.from_service_account_file('My First Project-c1dd0c0c9fd5.json')
 client = vision.ImageAnnotatorClient(credentials=creds)
+
 
 def process_images(img_path):
     '''
@@ -22,8 +24,9 @@ def process_images(img_path):
     Input : image path
     Output : logo_size, contrast_ratio, logo_conspicuousness, total_colors, entropy
     '''
-
+    logging.info(f"fetching info for image {img_path}")
     if not os.path.isfile(img_path):
+        logging.info("\timage not found")
         return pd.Series([None] * 5)
 
     # Get the cropped bag
@@ -42,12 +45,10 @@ def process_images(img_path):
     cropped_bag = np.array(cropped_bag)
 
     # Segmentation of the image into superpixels, taking average of superpixels and then doing clustering
-    # print("Processing for bag")
+
     bar, bag_dominant_color, bag_ratio, bag_rgb, all_bag_colors = segment_and_cluster(args.bag_segments, cropped_bag,
                                                                                       args.bag_cluster_size)
     sorted_bag_colors = get_sorted_colors(all_bag_colors)
-    # print("Sorted bag colors : ", sorted_bag_colors)
-    # print("Processing for logo")
 
     if cropped_logo is not None:
         cropped_logo = np.array(cropped_logo)  # converting pil image to numpy array
@@ -55,7 +56,6 @@ def process_images(img_path):
         # Get logo size
         height, width, _ = cropped_logo.shape
         logo_size = height * width
-        print("Logo size : ", logo_size)
 
         # Segment and cluster logo colors
         bar, logo_dominant_color, logo_ratio, logo_rgb, all_logo_colors = segment_and_cluster(args.logo_segments,
@@ -64,13 +64,12 @@ def process_images(img_path):
 
         # Calculate contrast ratio of logo to bag
         contrast_ratio = (calculate_relative_luminance(logo_rgb) + 0.05) / (
-                    calculate_relative_luminance(bag_rgb) + 0.05)
-        print("Contrast ratio is : ", contrast_ratio)
+                calculate_relative_luminance(bag_rgb) + 0.05)
 
         # Calculate Logo Conspicuousness
         relative_size = logo_size / bag_size
         logo_conspicuousness = contrast_ratio * relative_size
-        print("Logo Conspicuousness : ", logo_conspicuousness)
+
 
     else:
         logo_size = 0.0
@@ -79,7 +78,6 @@ def process_images(img_path):
 
     # Find total number of colors in the bag
     total_colors = len(sorted_bag_colors)
-    print("Total colors are : ", total_colors)
 
     # Calculate Entropy of the bag
     total_sum = 0
@@ -89,22 +87,28 @@ def process_images(img_path):
             total_sum += color[1]
 
     entropy = -1 * (total_sum * math.log(total_sum))
-    print("Entropy of handbag is : ", entropy)
+
+    contrast_ratio = round(contrast_ratio, 3)
+    logo_conspicuousness = round(logo_conspicuousness, 3)
+    entropy = round(entropy, 3)
+
+    logging.info(f"\tlogo_size: {logo_size}, contrast_ratio: {contrast_ratio}, "
+                 f"logo_conspicuousness: {logo_conspicuousness}, entropy:{entropy}")
 
     return pd.Series(
-        (logo_size, round(contrast_ratio, 3), round(logo_conspicuousness, 3), total_colors, round(entropy, 3)))
+        (logo_size, contrast_ratio, logo_conspicuousness, total_colors, entropy))
 
 
 def main(args):
-
     item_details = pd.DataFrame(columns=['Seller', 'Item ID', 'category', 'brand', 'Image_path'])
     dir_names = os.listdir(args.dir_path)
-    print("Total sellers : ", len(dir_names))
+    logging.info(f"Total sellers : {len(dir_names)}")
     for seller in dir_names:
         if not seller.startswith('seller_'):
             continue
 
-        product_info = pd.read_csv(args.dir_path + seller + '/ProductInfo.csv', usecols=["Item ID", "category", "brand"])
+        product_info = pd.read_csv(args.dir_path + seller + '/ProductInfo.csv',
+                                   usecols=["Item ID", "category", "brand"])
         product_info['Seller'] = seller
 
         # Get the image names and add to the dataframe
@@ -141,4 +145,6 @@ if __name__ == '__main__':
     parser.add_argument("--logo_segments", type=int, default=300, help="")
     parser.add_argument("--logo_cluster_size", type=int, default=3, help="")
     args = parser.parse_args()
+
+    logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
     main(args)
