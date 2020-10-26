@@ -45,10 +45,13 @@ def process_images(img_path):
     cropped_bag = np.array(cropped_bag)
 
     # Segmentation of the image into superpixels, taking average of superpixels and then doing clustering
+    color_result = {}
+    for i in range(2, args.bag_cluster_size + 1):
+        # print("Processing for bag")
+        bar, bag_dominant_color, bag_ratio, bag_rgb, all_bag_colors = segment_and_cluster(args.bag_segments, cropped_bag, i)
+        sorted_bag_colors = get_sorted_colors(all_bag_colors)
+        color_result[i] = sorted_bag_colors
 
-    bar, bag_dominant_color, bag_ratio, bag_rgb, all_bag_colors = segment_and_cluster(args.bag_segments, cropped_bag,
-                                                                                      args.bag_cluster_size)
-    sorted_bag_colors = get_sorted_colors(all_bag_colors)
 
     if cropped_logo is not None:
         cropped_logo = np.array(cropped_logo)  # converting pil image to numpy array
@@ -95,12 +98,21 @@ def process_images(img_path):
     logging.info(f"\tlogo_size: {logo_size}, contrast_ratio: {contrast_ratio}, "
                  f"logo_conspicuousness: {logo_conspicuousness}, entropy:{entropy}")
 
-    return pd.Series(
-        (logo_size, contrast_ratio, logo_conspicuousness, total_colors, entropy))
+    return_output = (logo_size,
+                     round(contrast_ratio, 3),
+                     round(logo_conspicuousness, 3),
+                     total_colors, round(entropy, 3))
+
+    for i in range(2, args.bag_cluster_size + 1):
+        colors, ratios = list(zip(*color_result[i]))
+        ratios = [round(val, 2) for val in ratios]
+        return_output = return_output + (colors, ratios)
+
+    return pd.Series(return_output)
 
 
 def main(args):
-    item_details = pd.DataFrame(columns=['Seller', 'Item ID', 'category', 'brand', 'Image_path'])
+    item_details = pd.DataFrame(columns=['Seller', 'Item ID', 'category', 'brand', 'color', 'Image_path'])
     dir_names = os.listdir(args.dir_path)
     logging.info(f"Total sellers : {len(dir_names)}")
     for seller in dir_names:
@@ -108,7 +120,7 @@ def main(args):
             continue
 
         product_info = pd.read_csv(args.dir_path + seller + '/ProductInfo.csv',
-                                   usecols=["Item ID", "category", "brand"])
+                                   usecols=["Item ID", "category", "brand", 'color'])
         product_info['Seller'] = seller
 
         # Get the image names and add to the dataframe
@@ -128,9 +140,13 @@ def main(args):
     item_details = item_details[item_details['category'].str.match('Bags')]
 
     new_cols = ['Logo Size', 'Logo Contrast', 'Logo Conspicuousness', 'Number of colors', 'Color Entropy']
+    for i in range(2, args.bag_cluster_size + 1):
+        new_cols = new_cols + ['color_k%d' % i, 'color_ratio_k%d' % i]
+
     for col in new_cols:
         item_details[col] = None
 
+    #item_details = item_details.head(20)
     item_details[new_cols] = item_details['Image_path'].apply(process_images)
 
     # Write to csv
@@ -141,9 +157,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Arguments')
     parser.add_argument("--dir_path", type=str, default='Group4/Sellers/', help="")
     parser.add_argument("--bag_segments", type=int, default=600, help="")
-    parser.add_argument("--bag_cluster_size", type=int, default=10, help="")
+    parser.add_argument("--bag_cluster_size", type=int, default=4, help="")
     parser.add_argument("--logo_segments", type=int, default=300, help="")
-    parser.add_argument("--logo_cluster_size", type=int, default=3, help="")
+    parser.add_argument("--logo_cluster_size", type=int, default=2, help="")
     args = parser.parse_args()
 
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
