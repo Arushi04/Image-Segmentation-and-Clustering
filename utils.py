@@ -88,7 +88,7 @@ def get_sorted_colors(all_colors):
      This functions takes all the colors which can be duplicate and returns the list of unique colors in
      decending order based on their total ratio
      Input: all the colors
-     Output: list of unoque colors in decending order
+     Output: list of unique colors in decending order
     '''
 
     color_pixels = {}
@@ -163,3 +163,10 @@ def calculate_relative_luminance(rgb):
            0.0722 * calculate_luminace(rgb[2])
 
 
+def is_white_pixel(x):
+    x = x.tolist()
+    white_range = [250, 251, 252, 253, 254, 255]
+    if x[0] in white_range and x[1] in white_range and x[2] in white_range:
+    #if x[0]==x[1]==x[2]==255:
+        return False
+    return True

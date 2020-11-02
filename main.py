@@ -46,12 +46,16 @@ def process_images(img_path):
 
     # Segmentation of the image into superpixels, taking average of superpixels and then doing clustering
     color_result = {}
-    for i in range(2, args.bag_cluster_size + 1):
+    rgb_colors = []
+    for i in range(1, args.bag_cluster_size):
         # print("Processing for bag")
         bar, bag_dominant_color, bag_ratio, bag_rgb, all_bag_colors = segment_and_cluster(args.bag_segments, cropped_bag, i)
         sorted_bag_colors = get_sorted_colors(all_bag_colors)
         color_result[i] = sorted_bag_colors
+        rgb_colors.append(bag_rgb)
 
+    logging.info(f"\tbag rgb colors: {rgb_colors}")
+    logging.info(f"\tcolors: {color_result}")
 
     if cropped_logo is not None:
         cropped_logo = np.array(cropped_logo)  # converting pil image to numpy array
@@ -103,7 +107,7 @@ def process_images(img_path):
                      round(logo_conspicuousness, 3),
                      total_colors, round(entropy, 3))
 
-    for i in range(2, args.bag_cluster_size + 1):
+    for i in range(1, args.bag_cluster_size):
         colors, ratios = list(zip(*color_result[i]))
         ratios = [round(val, 2) for val in ratios]
         return_output = return_output + (colors, ratios)
@@ -140,17 +144,16 @@ def main(args):
     item_details = item_details[item_details['category'].str.match('Bags')]
 
     new_cols = ['Logo Size', 'Logo Contrast', 'Logo Conspicuousness', 'Number of colors', 'Color Entropy']
-    for i in range(2, args.bag_cluster_size + 1):
+    for i in range(1, args.bag_cluster_size):
         new_cols = new_cols + ['color_k%d' % i, 'color_ratio_k%d' % i]
 
     for col in new_cols:
         item_details[col] = None
 
-    #item_details = item_details.head(20)
     item_details[new_cols] = item_details['Image_path'].apply(process_images)
 
     # Write to csv
-    item_details.to_csv("bag_details.csv")
+    item_details.to_csv("bag_details_v1.csv")
 
 
 if __name__ == '__main__':

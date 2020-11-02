@@ -3,7 +3,7 @@ from skimage.segmentation import slic
 from skimage.util import img_as_float
 from sklearn.cluster import KMeans
 
-from utils import centroid_histogram, get_colors
+from utils import centroid_histogram, get_colors, is_white_pixel
 
 
 def segment_image(cropped_img, numSegments):
@@ -32,9 +32,14 @@ def segment_and_cluster(num_segments, cropped_img, cluster_size):
     # Segmentation of the image into superpixels and taking average of superpixels
     out_img = segment_image(cropped_img, num_segments)
 
+    # Removing the white background before clustering
+    reshaped_img = out_img.reshape((-1, 3))
+    mask = np.apply_along_axis(is_white_pixel, 1, reshaped_img)
+    white_removed = reshaped_img[mask]
+
     # cluster the pixel intensities
     clt = KMeans(n_clusters=cluster_size, random_state=42)
-    clt.fit(out_img.reshape(-1, 3))
+    clt.fit(white_removed)
 
     hist = centroid_histogram(clt)
     bar, dominant_color, ratio, rgb_color, all_colors = get_colors(hist, clt.cluster_centers_)
