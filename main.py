@@ -1,7 +1,7 @@
 import argparse
 import pandas as pd
 import os
-import math
+from math import log
 import numpy as np
 from PIL import Image as Img
 import logging
@@ -54,7 +54,7 @@ def process_images(img_path):
         color_result[i] = sorted_bag_colors
         rgb_colors.append(bag_rgb)
 
-    logging.info(f"\tbag rgb colors: {rgb_colors}")
+    #logging.info(f"\tbag rgb colors: {rgb_colors}")
     logging.info(f"\tcolors: {color_result}")
 
     if cropped_logo is not None:
@@ -77,23 +77,25 @@ def process_images(img_path):
         relative_size = logo_size / bag_size
         logo_conspicuousness = contrast_ratio * relative_size
 
-
     else:
         logo_size = 0.0
         contrast_ratio = 0.0
         logo_conspicuousness = 0.0
 
-    # Find total number of colors in the bag
-    total_colors = len(sorted_bag_colors)
-
-    # Calculate Entropy of the bag
-    total_sum = 0
-
-    for color in sorted_bag_colors:
-        if color[1] >= 0.05:
-            total_sum += color[1]
-
-    entropy = -1 * (total_sum * math.log(total_sum))
+    # Find total number of colors and entropy of the bag
+    k2 = color_result[2]
+    k3 = color_result[3]
+    k2_dominant_ratio = k2[0][1]
+    print("k2_dominant_ratio : ", k2_dominant_ratio)
+    if k2_dominant_ratio >= 0.9:
+        total_colors = 1
+        entropy = 0
+    elif k2_dominant_ratio < 0.9 and k2_dominant_ratio >= 0.6:
+        total_colors = 2
+        entropy = -1 * ((k2_dominant_ratio * log(k2_dominant_ratio, 2)) + (k2[1][1] * log(k2[1][1], 2)))
+    else:
+        total_colors = 3
+        entropy = -1 * ((k3[0][1] * log(k3[0][1], 2)) + (k3[1][1] * log(k3[1][1], 2)) + (k3[2][1] * log(k3[2][1], 2)))
 
     contrast_ratio = round(contrast_ratio, 3)
     logo_conspicuousness = round(logo_conspicuousness, 3)
@@ -105,7 +107,7 @@ def process_images(img_path):
     return_output = (logo_size,
                      round(contrast_ratio, 3),
                      round(logo_conspicuousness, 3),
-                     total_colors, round(entropy, 3))
+                     int(total_colors), round(entropy, 3))
 
     for i in range(1, args.bag_cluster_size):
         colors, ratios = list(zip(*color_result[i]))
@@ -150,10 +152,11 @@ def main(args):
     for col in new_cols:
         item_details[col] = None
 
+    #item_details = item_details.head(5)
     item_details[new_cols] = item_details['Image_path'].apply(process_images)
 
     # Write to csv
-    item_details.to_csv("bag_details_v1.csv")
+    item_details.to_csv("bag_details_test.csv")
 
 
 if __name__ == '__main__':
