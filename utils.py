@@ -1,6 +1,60 @@
 import webcolors
 import numpy as np
 import cv2
+from skimage import measure
+
+
+def mask_background(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    lower_white = np.array([254, 254, 254], dtype=np.uint8)
+    upper_white = np.array([255, 255, 255], dtype=np.uint8)
+    mask = cv2.inRange(img, lower_white, upper_white)  # could also use threshold
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (
+    3, 3)))  # "erase" the small white points in the resulting mask
+    mask = cv2.bitwise_not(mask)  # invert mask
+
+    # get masked foreground
+    fg_masked = cv2.bitwise_and(img, img, mask=mask)
+
+    return fg_masked
+
+
+def remove_glare(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    masked_img = mask_background(img)
+    gray = cv2.cvtColor(masked_img, cv2.COLOR_BGR2GRAY)
+    blurred = cv2.GaussianBlur(gray, (9, 9), 0)
+
+    _, thresh_img = cv2.threshold(blurred, 180, 255, cv2.THRESH_BINARY)
+    thresh_img = cv2.erode(thresh_img, None, iterations=1)
+    thresh_img = cv2.dilate(thresh_img, None, iterations=5)
+
+    # perform a connected component analysis on the thresholded image,
+    # then initialize a mask to store only the "large" components
+    labels = measure.label(thresh_img, connectivity=2, background=0)
+    mask = np.zeros(thresh_img.shape, dtype="uint8")
+
+    for label in np.unique(labels):
+        if label == 0:
+            continue
+
+        # otherwise, construct the label mask and count the number of pixels
+        labelMask = np.zeros(thresh_img.shape, dtype="uint8")
+        labelMask[labels == label] = 255
+        numPixels = cv2.countNonZero(labelMask)
+
+        # if the number of pixels in the component is sufficiently
+        # large, then add it to our mask of "large blobs"
+        if numPixels > 500:
+            mask = cv2.add(mask, labelMask)
+
+    # Masking
+    flag = cv2.INPAINT_NS
+    # flag2 = cv2.INPAINT_TELEA
+    output = cv2.inpaint(img, mask, 3, flags=flag)
+
+    return output[:,:,::-1]
+
 
 
 def closest_color(requested_color):

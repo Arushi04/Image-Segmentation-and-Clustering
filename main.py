@@ -7,7 +7,7 @@ from PIL import Image as Img
 import logging
 
 from vision import crop_image, get_logo
-from utils import get_sorted_colors, calculate_relative_luminance
+from utils import get_sorted_colors, calculate_relative_luminance, remove_glare
 from segment import segment_and_cluster
 
 # Connecting to Google Cloud
@@ -43,6 +43,9 @@ def process_images(img_path):
 
     # converting cropped bag img from PIL to numpy array
     cropped_bag = np.array(cropped_bag)
+
+    # Removing glares from the image
+    cropped_bag = remove_glare(cropped_bag)
 
     # Segmentation of the image into superpixels, taking average of superpixels and then doing clustering
     color_result = {}
